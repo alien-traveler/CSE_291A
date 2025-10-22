@@ -1,0 +1,17 @@
+{
+  "num_rows": 423,
+  "date_min": "20150219",
+  "date_max": "20230718",
+  "top_categories": {
+    "cs.CL": 268,
+    "cs.LG": 87,
+    "cs.AI": 20,
+    "cs.CY": 14,
+    "cs.CV": 10,
+    "cs.CR": 5,
+    "cs.SE": 4,
+    "cs.RO": 4,
+    "cs.PL": 2,
+    "cs.SD": 2
+  }
+}
