@@ -1,0 +1,590 @@
+[
+  {
+    "repo": "huggingface/transformers",
+    "stars": 151475,
+    "url": "https://github.com/huggingface/transformers",
+    "readme_path": "github_readmes\\huggingface_transformers_README.md"
+  },
+  {
+    "repo": "microsoft/torchscale",
+    "stars": 3119,
+    "url": "https://github.com/microsoft/torchscale",
+    "readme_path": "github_readmes\\microsoft_torchscale_README.md"
+  },
+  {
+    "repo": "X-PLUG/mPLUG-Owl",
+    "stars": 2527,
+    "url": "https://github.com/X-PLUG/mPLUG-Owl",
+    "readme_path": "github_readmes\\X-PLUG_mPLUG-Owl_README.md"
+  },
+  {
+    "repo": "kyegomez/BitNet",
+    "stars": 1885,
+    "url": "https://github.com/kyegomez/BitNet",
+    "readme_path": "github_readmes\\kyegomez_BitNet_README.md"
+  },
+  {
+    "repo": "showlab/Show-o",
+    "stars": 1749,
+    "url": "https://github.com/showlab/Show-o",
+    "readme_path": "github_readmes\\showlab_Show-o_README.md"
+  },
+  {
+    "repo": "invictus717/MetaTransformer",
+    "stars": 1632,
+    "url": "https://github.com/invictus717/MetaTransformer",
+    "readme_path": "github_readmes\\invictus717_MetaTransformer_README.md"
+  },
+  {
+    "repo": "open-mmlab/Multimodal-GPT",
+    "stars": 1507,
+    "url": "https://github.com/open-mmlab/Multimodal-GPT",
+    "readme_path": "github_readmes\\open-mmlab_Multimodal-GPT_README.md"
+  },
+  {
+    "repo": "dailenson/SDT",
+    "stars": 1263,
+    "url": "https://github.com/dailenson/SDT",
+    "readme_path": "github_readmes\\dailenson_SDT_README.md"
+  },
+  {
+    "repo": "unum-cloud/UForm",
+    "stars": 1185,
+    "url": "https://github.com/unum-cloud/UForm",
+    "readme_path": "github_readmes\\unum-cloud_UForm_README.md"
+  },
+  {
+    "repo": "yaohungt/Multimodal-Transformer",
+    "stars": 920,
+    "url": "https://github.com/yaohungt/Multimodal-Transformer",
+    "readme_path": "github_readmes\\yaohungt_Multimodal-Transformer_README.md"
+  },
+  {
+    "repo": "georgian-io/Multimodal-Toolkit",
+    "stars": 608,
+    "url": "https://github.com/georgian-io/Multimodal-Toolkit",
+    "readme_path": "github_readmes\\georgian-io_Multimodal-Toolkit_README.md"
+  },
+  {
+    "repo": "Rubics-Xuan/TransBTS",
+    "stars": 429,
+    "url": "https://github.com/Rubics-Xuan/TransBTS",
+    "readme_path": "github_readmes\\Rubics-Xuan_TransBTS_README.md"
+  },
+  {
+    "repo": "zdou0830/METER",
+    "stars": 373,
+    "url": "https://github.com/zdou0830/METER",
+    "readme_path": "github_readmes\\zdou0830_METER_README.md"
+  },
+  {
+    "repo": "decisionforce/mmTransformer",
+    "stars": 372,
+    "url": "https://github.com/decisionforce/mmTransformer",
+    "readme_path": "github_readmes\\decisionforce_mmTransformer_README.md"
+  },
+  {
+    "repo": "YeexiaoZheng/Multimodal-Sentiment-Analysis",
+    "stars": 323,
+    "url": "https://github.com/YeexiaoZheng/Multimodal-Sentiment-Analysis",
+    "readme_path": "github_readmes\\YeexiaoZheng_Multimodal-Sentiment-Analysis_README.md"
+  },
+  {
+    "repo": "gabeur/mmt",
+    "stars": 262,
+    "url": "https://github.com/gabeur/mmt",
+    "readme_path": "github_readmes\\gabeur_mmt_README.md"
+  },
+  {
+    "repo": "kyegomez/NaViT",
+    "stars": 258,
+    "url": "https://github.com/kyegomez/NaViT",
+    "readme_path": "github_readmes\\kyegomez_NaViT_README.md"
+  },
+  {
+    "repo": "mbodiai/embodied-agents",
+    "stars": 247,
+    "url": "https://github.com/mbodiai/embodied-agents",
+    "readme_path": "github_readmes\\mbodiai_embodied-agents_README.md"
+  },
+  {
+    "repo": "MarSaKi/VLN-BEVBert",
+    "stars": 240,
+    "url": "https://github.com/MarSaKi/VLN-BEVBert",
+    "readme_path": "github_readmes\\MarSaKi_VLN-BEVBert_README.md"
+  },
+  {
+    "repo": "FusionBrainLab/OmniFusion",
+    "stars": 233,
+    "url": "https://github.com/FusionBrainLab/OmniFusion",
+    "readme_path": "github_readmes\\FusionBrainLab_OmniFusion_README.md"
+  },
+  {
+    "repo": "YiLunLee/missing_aware_prompts",
+    "stars": 218,
+    "url": "https://github.com/YiLunLee/missing_aware_prompts",
+    "readme_path": "github_readmes\\YiLunLee_missing_aware_prompts_README.md"
+  },
+  {
+    "repo": "WasifurRahman/BERT_multimodal_transformer",
+    "stars": 211,
+    "url": "https://github.com/WasifurRahman/BERT_multimodal_transformer",
+    "readme_path": "github_readmes\\WasifurRahman_BERT_multimodal_transformer_README.md"
+  },
+  {
+    "repo": "kyegomez/MambaTransformer",
+    "stars": 207,
+    "url": "https://github.com/kyegomez/MambaTransformer",
+    "readme_path": "github_readmes\\kyegomez_MambaTransformer_README.md"
+  },
+  {
+    "repo": "zjunlp/MKGformer",
+    "stars": 199,
+    "url": "https://github.com/zjunlp/MKGformer",
+    "readme_path": "github_readmes\\zjunlp_MKGformer_README.md"
+  },
+  {
+    "repo": "snap-research/MMVID",
+    "stars": 192,
+    "url": "https://github.com/snap-research/MMVID",
+    "readme_path": "github_readmes\\snap-research_MMVID_README.md"
+  },
+  {
+    "repo": "AMAAI-Lab/Video2Music",
+    "stars": 185,
+    "url": "https://github.com/AMAAI-Lab/Video2Music",
+    "readme_path": "github_readmes\\AMAAI-Lab_Video2Music_README.md"
+  },
+  {
+    "repo": "chengjunyan1/SP-Transformer",
+    "stars": 182,
+    "url": "https://github.com/chengjunyan1/SP-Transformer",
+    "readme_path": "github_readmes\\chengjunyan1_SP-Transformer_README.md"
+  },
+  {
+    "repo": "yikaiw/TokenFusion",
+    "stars": 181,
+    "url": "https://github.com/yikaiw/TokenFusion",
+    "readme_path": "github_readmes\\yikaiw_TokenFusion_README.md"
+  },
+  {
+    "repo": "kyegomez/Andromeda",
+    "stars": 149,
+    "url": "https://github.com/kyegomez/Andromeda",
+    "readme_path": "github_readmes\\kyegomez_Andromeda_README.md"
+  },
+  {
+    "repo": "Haoyu-ha/ALMT",
+    "stars": 132,
+    "url": "https://github.com/Haoyu-ha/ALMT",
+    "readme_path": "github_readmes\\Haoyu-ha_ALMT_README.md"
+  },
+  {
+    "repo": "cshizhe/VLN-HAMT",
+    "stars": 131,
+    "url": "https://github.com/cshizhe/VLN-HAMT",
+    "readme_path": "github_readmes\\cshizhe_VLN-HAMT_README.md"
+  },
+  {
+    "repo": "YaoZhang93/mmFormer",
+    "stars": 127,
+    "url": "https://github.com/YaoZhang93/mmFormer",
+    "readme_path": "github_readmes\\YaoZhang93_mmFormer_README.md"
+  },
+  {
+    "repo": "zhangxuying1004/RSTNet",
+    "stars": 123,
+    "url": "https://github.com/zhangxuying1004/RSTNet",
+    "readme_path": "github_readmes\\zhangxuying1004_RSTNet_README.md"
+  },
+  {
+    "repo": "shamanez/Self-Supervised-Embedding-Fusion-Transformer",
+    "stars": 121,
+    "url": "https://github.com/shamanez/Self-Supervised-Embedding-Fusion-Transformer",
+    "readme_path": "github_readmes\\shamanez_Self-Supervised-Embedding-Fusion-Transformer_README.md"
+  },
+  {
+    "repo": "pliang279/HighMMT",
+    "stars": 117,
+    "url": "https://github.com/pliang279/HighMMT",
+    "readme_path": "github_readmes\\pliang279_HighMMT_README.md"
+  },
+  {
+    "repo": "HuiZhang0812/CreatiLayout",
+    "stars": 116,
+    "url": "https://github.com/HuiZhang0812/CreatiLayout",
+    "readme_path": "github_readmes\\HuiZhang0812_CreatiLayout_README.md"
+  },
+  {
+    "repo": "salesforce/LayoutDETR",
+    "stars": 100,
+    "url": "https://github.com/salesforce/LayoutDETR",
+    "readme_path": "github_readmes\\salesforce_LayoutDETR_README.md"
+  },
+  {
+    "repo": "AILab-CVC/M2PT",
+    "stars": 99,
+    "url": "https://github.com/AILab-CVC/M2PT",
+    "readme_path": "github_readmes\\AILab-CVC_M2PT_README.md"
+  },
+  {
+    "repo": "Cassie07/PathOmics",
+    "stars": 97,
+    "url": "https://github.com/Cassie07/PathOmics",
+    "readme_path": "github_readmes\\Cassie07_PathOmics_README.md"
+  },
+  {
+    "repo": "lucidrains/zorro-pytorch",
+    "stars": 96,
+    "url": "https://github.com/lucidrains/zorro-pytorch",
+    "readme_path": "github_readmes\\lucidrains_zorro-pytorch_README.md"
+  },
+  {
+    "repo": "X-PLUG/mPLUG",
+    "stars": 96,
+    "url": "https://github.com/X-PLUG/mPLUG",
+    "readme_path": "github_readmes\\X-PLUG_mPLUG_README.md"
+  },
+  {
+    "repo": "tthinking/MATR",
+    "stars": 92,
+    "url": "https://github.com/tthinking/MATR",
+    "readme_path": "github_readmes\\tthinking_MATR_README.md"
+  },
+  {
+    "repo": "jayleicn/TVCaption",
+    "stars": 90,
+    "url": "https://github.com/jayleicn/TVCaption",
+    "readme_path": "github_readmes\\jayleicn_TVCaption_README.md"
+  },
+  {
+    "repo": "OPPO-Mente-Lab/X2I",
+    "stars": 85,
+    "url": "https://github.com/OPPO-Mente-Lab/X2I",
+    "readme_path": "github_readmes\\OPPO-Mente-Lab_X2I_README.md"
+  },
+  {
+    "repo": "leaderj1001/CLIP",
+    "stars": 80,
+    "url": "https://github.com/leaderj1001/CLIP",
+    "readme_path": "github_readmes\\leaderj1001_CLIP_README.md"
+  },
+  {
+    "repo": "jinyanglii/OVTR",
+    "stars": 78,
+    "url": "https://github.com/jinyanglii/OVTR",
+    "readme_path": "github_readmes\\jinyanglii_OVTR_README.md"
+  },
+  {
+    "repo": "guillefix/transflower-lightning",
+    "stars": 74,
+    "url": "https://github.com/guillefix/transflower-lightning",
+    "readme_path": "github_readmes\\guillefix_transflower-lightning_README.md"
+  },
+  {
+    "repo": "sunlicai/EMT-DLFR",
+    "stars": 72,
+    "url": "https://github.com/sunlicai/EMT-DLFR",
+    "readme_path": "github_readmes\\sunlicai_EMT-DLFR_README.md"
+  },
+  {
+    "repo": "ymhzyj/UMMAFormer",
+    "stars": 71,
+    "url": "https://github.com/ymhzyj/UMMAFormer",
+    "readme_path": "github_readmes\\ymhzyj_UMMAFormer_README.md"
+  },
+  {
+    "repo": "yashkant/sam-textvqa",
+    "stars": 64,
+    "url": "https://github.com/yashkant/sam-textvqa",
+    "readme_path": "github_readmes\\yashkant_sam-textvqa_README.md"
+  },
+  {
+    "repo": "cosmaadrian/time-enriched-multimodal-depression-detection",
+    "stars": 59,
+    "url": "https://github.com/cosmaadrian/time-enriched-multimodal-depression-detection",
+    "readme_path": "github_readmes\\cosmaadrian_time-enriched-multimodal-depression-detection_README.md"
+  },
+  {
+    "repo": "zhang-haojie/LetsTalk",
+    "stars": 59,
+    "url": "https://github.com/zhang-haojie/LetsTalk",
+    "readme_path": "github_readmes\\zhang-haojie_LetsTalk_README.md"
+  },
+  {
+    "repo": "HumaticsLAB/GTM-Transformer",
+    "stars": 56,
+    "url": "https://github.com/HumaticsLAB/GTM-Transformer",
+    "readme_path": "github_readmes\\HumaticsLAB_GTM-Transformer_README.md"
+  },
+  {
+    "repo": "ictnlp/DSTC8-AVSD",
+    "stars": 56,
+    "url": "https://github.com/ictnlp/DSTC8-AVSD",
+    "readme_path": "github_readmes\\ictnlp_DSTC8-AVSD_README.md"
+  },
+  {
+    "repo": "uakarsh/latr",
+    "stars": 55,
+    "url": "https://github.com/uakarsh/latr",
+    "readme_path": "github_readmes\\uakarsh_latr_README.md"
+  },
+  {
+    "repo": "935963004/MAET",
+    "stars": 54,
+    "url": "https://github.com/935963004/MAET",
+    "readme_path": "github_readmes\\935963004_MAET_README.md"
+  },
+  {
+    "repo": "haoliuhl/instructrl",
+    "stars": 53,
+    "url": "https://github.com/haoliuhl/instructrl",
+    "readme_path": "github_readmes\\haoliuhl_instructrl_README.md"
+  },
+  {
+    "repo": "SMARTlab-Purdue/PrefMMT",
+    "stars": 50,
+    "url": "https://github.com/SMARTlab-Purdue/PrefMMT",
+    "readme_path": "github_readmes\\SMARTlab-Purdue_PrefMMT_README.md"
+  },
+  {
+    "repo": "double125/MADTP",
+    "stars": 48,
+    "url": "https://github.com/double125/MADTP",
+    "readme_path": "github_readmes\\double125_MADTP_README.md"
+  },
+  {
+    "repo": "CrawlScript/MIG-GT",
+    "stars": 46,
+    "url": "https://github.com/CrawlScript/MIG-GT",
+    "readme_path": "github_readmes\\CrawlScript_MIG-GT_README.md"
+  },
+  {
+    "repo": "SQD1/RESTORE-DiT",
+    "stars": 44,
+    "url": "https://github.com/SQD1/RESTORE-DiT",
+    "readme_path": "github_readmes\\SQD1_RESTORE-DiT_README.md"
+  },
+  {
+    "repo": "thuiar/TFR-Net",
+    "stars": 41,
+    "url": "https://github.com/thuiar/TFR-Net",
+    "readme_path": "github_readmes\\thuiar_TFR-Net_README.md"
+  },
+  {
+    "repo": "Vchitect/TACA",
+    "stars": 39,
+    "url": "https://github.com/Vchitect/TACA",
+    "readme_path": "github_readmes\\Vchitect_TACA_README.md"
+  },
+  {
+    "repo": "weimin17/Multimodal_Transformer",
+    "stars": 36,
+    "url": "https://github.com/weimin17/Multimodal_Transformer",
+    "readme_path": "github_readmes\\weimin17_Multimodal_Transformer_README.md"
+  },
+  {
+    "repo": "TIAN-viola/DynRT",
+    "stars": 35,
+    "url": "https://github.com/TIAN-viola/DynRT",
+    "readme_path": "github_readmes\\TIAN-viola_DynRT_README.md"
+  },
+  {
+    "repo": "ygjin11/r2-play",
+    "stars": 34,
+    "url": "https://github.com/ygjin11/r2-play",
+    "readme_path": "github_readmes\\ygjin11_r2-play_README.md"
+  },
+  {
+    "repo": "Cliu2/MTrans",
+    "stars": 31,
+    "url": "https://github.com/Cliu2/MTrans",
+    "readme_path": "github_readmes\\Cliu2_MTrans_README.md"
+  },
+  {
+    "repo": "Kateridge/TransMF_AD",
+    "stars": 30,
+    "url": "https://github.com/Kateridge/TransMF_AD",
+    "readme_path": "github_readmes\\Kateridge_TransMF_AD_README.md"
+  },
+  {
+    "repo": "MuiscNN/Lamucal",
+    "stars": 29,
+    "url": "https://github.com/MuiscNN/Lamucal",
+    "readme_path": "github_readmes\\MuiscNN_Lamucal_README.md"
+  },
+  {
+    "repo": "MCG-NJU/Dynamic-MDETR",
+    "stars": 29,
+    "url": "https://github.com/MCG-NJU/Dynamic-MDETR",
+    "readme_path": "github_readmes\\MCG-NJU_Dynamic-MDETR_README.md"
+  },
+  {
+    "repo": "ericyinyzy/MTN_trajectory",
+    "stars": 29,
+    "url": "https://github.com/ericyinyzy/MTN_trajectory",
+    "readme_path": "github_readmes\\ericyinyzy_MTN_trajectory_README.md"
+  },
+  {
+    "repo": "youngbin-ro/audiotext-transformer",
+    "stars": 28,
+    "url": "https://github.com/youngbin-ro/audiotext-transformer",
+    "readme_path": "github_readmes\\youngbin-ro_audiotext-transformer_README.md"
+  },
+  {
+    "repo": "Eurus-Holmes/MulT",
+    "stars": 28,
+    "url": "https://github.com/Eurus-Holmes/MulT",
+    "readme_path": "github_readmes\\Eurus-Holmes_MulT_README.md"
+  },
+  {
+    "repo": "OmicsML/scMoFormer",
+    "stars": 28,
+    "url": "https://github.com/OmicsML/scMoFormer",
+    "readme_path": "github_readmes\\OmicsML_scMoFormer_README.md"
+  },
+  {
+    "repo": "Yuan-ManX/ComfyUI-HunyuanVideo-Avatar",
+    "stars": 27,
+    "url": "https://github.com/Yuan-ManX/ComfyUI-HunyuanVideo-Avatar",
+    "readme_path": "github_readmes\\Yuan-ManX_ComfyUI-HunyuanVideo-Avatar_README.md"
+  },
+  {
+    "repo": "papermsucode/mdmmt",
+    "stars": 26,
+    "url": "https://github.com/papermsucode/mdmmt",
+    "readme_path": "github_readmes\\papermsucode_mdmmt_README.md"
+  },
+  {
+    "repo": "georgesterpu/Taris",
+    "stars": 26,
+    "url": "https://github.com/georgesterpu/Taris",
+    "readme_path": "github_readmes\\georgesterpu_Taris_README.md"
+  },
+  {
+    "repo": "VegB/VLN-Transformer",
+    "stars": 26,
+    "url": "https://github.com/VegB/VLN-Transformer",
+    "readme_path": "github_readmes\\VegB_VLN-Transformer_README.md"
+  },
+  {
+    "repo": "aimagelab/ReT",
+    "stars": 26,
+    "url": "https://github.com/aimagelab/ReT",
+    "readme_path": "github_readmes\\aimagelab_ReT_README.md"
+  },
+  {
+    "repo": "MILVLG/mt-captioning",
+    "stars": 25,
+    "url": "https://github.com/MILVLG/mt-captioning",
+    "readme_path": "github_readmes\\MILVLG_mt-captioning_README.md"
+  },
+  {
+    "repo": "xjchenGit/MTDVocaLiST",
+    "stars": 25,
+    "url": "https://github.com/xjchenGit/MTDVocaLiST",
+    "readme_path": "github_readmes\\xjchenGit_MTDVocaLiST_README.md"
+  },
+  {
+    "repo": "CSIPlab/MMSFormer",
+    "stars": 25,
+    "url": "https://github.com/CSIPlab/MMSFormer",
+    "readme_path": "github_readmes\\CSIPlab_MMSFormer_README.md"
+  },
+  {
+    "repo": "wzk1015/CNMT",
+    "stars": 24,
+    "url": "https://github.com/wzk1015/CNMT",
+    "readme_path": "github_readmes\\wzk1015_CNMT_README.md"
+  },
+  {
+    "repo": "kimkyeonghun/MSA",
+    "stars": 24,
+    "url": "https://github.com/kimkyeonghun/MSA",
+    "readme_path": "github_readmes\\kimkyeonghun_MSA_README.md"
+  },
+  {
+    "repo": "iiscleap/multimodal_emotion_recognition",
+    "stars": 24,
+    "url": "https://github.com/iiscleap/multimodal_emotion_recognition",
+    "readme_path": "github_readmes\\iiscleap_multimodal_emotion_recognition_README.md"
+  },
+  {
+    "repo": "saharhzm/CrossModalSleepTransformer",
+    "stars": 24,
+    "url": "https://github.com/saharhzm/CrossModalSleepTransformer",
+    "readme_path": "github_readmes\\saharhzm_CrossModalSleepTransformer_README.md"
+  },
+  {
+    "repo": "bubaimaji/cmt-mser",
+    "stars": 22,
+    "url": "https://github.com/bubaimaji/cmt-mser",
+    "readme_path": "github_readmes\\bubaimaji_cmt-mser_README.md"
+  },
+  {
+    "repo": "breezedeus/Coin-CLIP",
+    "stars": 22,
+    "url": "https://github.com/breezedeus/Coin-CLIP",
+    "readme_path": "github_readmes\\breezedeus_Coin-CLIP_README.md"
+  },
+  {
+    "repo": "GaochangWu/FMF-Benchmark",
+    "stars": 22,
+    "url": "https://github.com/GaochangWu/FMF-Benchmark",
+    "readme_path": "github_readmes\\GaochangWu_FMF-Benchmark_README.md"
+  },
+  {
+    "repo": "schwallergroup/AdsMT",
+    "stars": 21,
+    "url": "https://github.com/schwallergroup/AdsMT",
+    "readme_path": "github_readmes\\schwallergroup_AdsMT_README.md"
+  },
+  {
+    "repo": "shijun18/H-DenseFormer",
+    "stars": 20,
+    "url": "https://github.com/shijun18/H-DenseFormer",
+    "readme_path": "github_readmes\\shijun18_H-DenseFormer_README.md"
+  },
+  {
+    "repo": "FirasGit/MeTra",
+    "stars": 20,
+    "url": "https://github.com/FirasGit/MeTra",
+    "readme_path": "github_readmes\\FirasGit_MeTra_README.md"
+  },
+  {
+    "repo": "imedslab/CLIMATv2",
+    "stars": 20,
+    "url": "https://github.com/imedslab/CLIMATv2",
+    "readme_path": "github_readmes\\imedslab_CLIMATv2_README.md"
+  },
+  {
+    "repo": "ThreePoundUniverse/TSMMF-ESWA",
+    "stars": 20,
+    "url": "https://github.com/ThreePoundUniverse/TSMMF-ESWA",
+    "readme_path": "github_readmes\\ThreePoundUniverse_TSMMF-ESWA_README.md"
+  },
+  {
+    "repo": "NUSTM/HIMT",
+    "stars": 20,
+    "url": "https://github.com/NUSTM/HIMT",
+    "readme_path": "github_readmes\\NUSTM_HIMT_README.md"
+  },
+  {
+    "repo": "pandayuanyu/HCFusion",
+    "stars": 20,
+    "url": "https://github.com/pandayuanyu/HCFusion",
+    "readme_path": "github_readmes\\pandayuanyu_HCFusion_README.md"
+  },
+  {
+    "repo": "Angknpng/SACNet",
+    "stars": 20,
+    "url": "https://github.com/Angknpng/SACNet",
+    "readme_path": "github_readmes\\Angknpng_SACNet_README.md"
+  },
+  {
+    "repo": "DAMO-NLP-SG/Multipurpose-Chatbot",
+    "stars": 19,
+    "url": "https://github.com/DAMO-NLP-SG/Multipurpose-Chatbot",
+    "readme_path": "github_readmes\\DAMO-NLP-SG_Multipurpose-Chatbot_README.md"
+  }
+]
