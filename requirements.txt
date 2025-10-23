@@ -1,0 +1,12 @@
+# RAG Test Query Generation Requirements
+
+# Core dependencies
+pymupdf>=1.23.0          # PDF processing
+openai>=1.0.0            # OpenAI API client
+python-dotenv>=1.0.0     # Environment variable management
+tqdm>=4.64.0             # Progress bars
+
+# Optional dependencies (already in your environment)
+# sentence-transformers  # For embeddings (if needed)
+# faiss-cpu             # For vector search (if needed)
+# numpy                 # For numerical operations (if needed)
