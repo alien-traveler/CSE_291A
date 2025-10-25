@@ -55,9 +55,24 @@ python scripts/step2_schema.py
 python scripts/step3_embed_bge.py
 ```
 
-### Step 4: Search the Index
+### Step 4: Build RAG Index
 ```bash
-python scripts/search_bge.py
+python build_embedding.py
+```
+
+### Step 5: Create Test Requests
+```bash
+python create_request.py
+```
+
+### Step 6: Evaluate Retrieval
+```bash
+python evaluate_retrieval.py
+```
+
+### Step 7: Run the RAG Pipeline
+```bash
+python rag_pipeline.py
 ```
 
 ## Project Structure
@@ -80,6 +95,11 @@ project/
 │   ├── step2_schema.py
 │   ├── step3_embed_bge.py
 │   └── search_bge.py
+├── build_embedding.py
+├── create_request.py
+├── evaluate_retrieval.py
+├── rag_evaluator.py
+├── rag_pipeline.py
 ├── environment.yml
 └── README.md
 ```

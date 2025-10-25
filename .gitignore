@@ -1,5 +1,6 @@
 .env
 .DS_Store
+.idea/
 
 # Large data files
 data/*.pdf
