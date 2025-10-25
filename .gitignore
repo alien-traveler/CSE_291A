@@ -1,0 +1,7 @@
+model
+__pycache__
+arxiv_paper.json
+evaluation_results.json
+github_readme.json
+rag_data.jsonl
+rag_embeddings.npy
