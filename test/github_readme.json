@@ -1,0 +1,76 @@
+[
+  {
+    "question": "What specific command should be used to generate the normalized version of the SIMS dataset features in EMT-DLFR?",
+    "reference_content": [
+      "For SIMS, you need to use the following script to generate the normalized version (only normalize audio and visual features).",
+      "```\npython preprocess/normalize_sims.py\n```"
+    ],
+    "file": "github_readmes/sunlicai_EMT-DLFR_README.md"
+  },
+  {
+    "question": "What specific files are required for running HIMT and where can they be downloaded?",
+    "reference_content": [
+      "We upload **mywordbag.txt** and **myembedding.txt** to [Baidu Netdist](https://pan.baidu.com/s/1F3rI0oSA2GTvToXlhXAsmQ) with code kbtf which are needed when running our code.",
+      "You can download from [Baidu Netdist](https://pan.baidu.com/s/1F3rI0oSA2GTvToXlhXAsmQ) with the extraction code kbtf."
+    ],
+    "file": "github_readmes/NUSTM_HIMT_README.md"
+  },
+  {
+    "question": "What is the specific command to run the installation of BitNet and which dependencies are required?",
+    "reference_content": [
+      "## Installation\n```bash\npip3 install bitnet\n```"
+    ],
+    "file": "github_readmes/kyegomez_BitNet_README.md"
+  },
+  {
+    "question": "What is the exact command to run the inference script for GTM-Transformer?",
+    "reference_content": [
+      "To evaluate the model of GTM-Transformer please use the following script. Please check the arguments inside the script before launch.\n\n```bash\npython forecast.py --data_folder dataset --ckpt_path ckpt/model.pth\n```"
+    ],
+    "file": "github_readmes/HumaticsLAB_GTM-Transformer_README.md"
+  },
+  {
+    "question": "What is the exact command to construct the Multimodal Pathway in the Multimodal Pathway project?",
+    "reference_content": [
+      "#  Construct Multimodal Pathway\nfrom multimodal_pathway import reparameterize_aux_into_target_model\nreparameterize_aux_into_target_model(model, aux_model, layer_names=('attn.qkv', 'attn.proj', 'mlp.fc1','mlp.fc2'))"
+    ],
+    "file": "github_readmes/AILab-CVC_M2PT_README.md"
+  },
+  {
+    "question": "What are the specific scripts used to create the json files with the dates of the posts in the project 'It’s Just a Matter of Time: Detecting Depression with Time-Enriched Multimodal Transformers'?",
+    "reference_content": [
+      "After getting the data, two json files with the dates of the posts need to be created. For generating the files, the scripts should be used: `scripts/format-reddit-2.py` and `scripts/format-twitter.py`."
+    ],
+    "file": "github_readmes/cosmaadrian_time-enriched-multimodal-depression-detection_README.md"
+  },
+  {
+    "question": "What is the exact command to run the training script for Transflower using the hparams file in training/hparams/dance_combined/transflower_expmap.yaml?",
+    "reference_content": [
+      "You can run `./script_train.sh transflower_expmap` to train using the hparams file in `training/hparams/dance_combined/transflower_expmap.yaml`, which is the configuration we used in the paper."
+    ],
+    "file": "github_readmes/guillefix_transflower-lightning_README.md"
+  },
+  {
+    "question": "What is the validation accuracy achieved using the current configurations for LaTr and how does it compare to the authors' results?",
+    "reference_content": [
+      "And have been able to obtain a validation accuracy of: 27.42 percentage (authors were able to achieve 44.03 percentage)"
+    ],
+    "file": "github_readmes/uakarsh_latr_README.md"
+  },
+  {
+    "question": "What is the exact command to evaluate OVTR on the TAO validation set using the TETA metric?",
+    "reference_content": [
+      "### Evaluate the performance of OVTR in open-vocabulary multi-object tracking (OVMOT).",
+      "- **Evaluate OVTR on the TAO validation set using the TETA metric.**",
+      "```shell\ncd ovtr\nsh tools/ovtr_ovmot_eval_e15_val.sh\n```"
+    ],
+    "file": "github_readmes/jinyanglii_OVTR_README.md"
+  },
+  {
+    "question": "What is the specific command to run the training script for DynRT and what parameters are required?",
+    "reference_content": [
+      "You can use `train.py` to train a DynRT model. A command template is as follows:\n```bash\nCUDA_VISIBLE_DEVICES=0 python train.py {path of the parameter configuration file} \\\n```"
+    ],
+    "file": "github_readmes/TIAN-viola_DynRT_README.md"
+  }
+]
