@@ -70,8 +70,28 @@ python create_request.py
 python evaluate_retrieval.py
 ```
 
-### Step 7: Run the RAG Pipeline
+### Step 7: Prepare data for RAG pipeline
 ```bash
+python convert_pdf_to_chunk_data.py
+```
+
+### Step 8: Start vLLM Server (Required for RAG Pipeline)
+Before running the RAG pipeline, you need to start the vLLM server in a separate terminal:
+
+```bash
+# Make sure you're in the cse291a environment
+conda activate cse291a
+
+# Start the vLLM server (this will take a while to load the model)
+vllm serve Qwen/Qwen3-0.6B --port 8082
+```
+
+
+### Step 9: Run the RAG Pipeline
+In a new terminal (with the vLLM server still running):
+```bash
+conda activate cse291a
+cd CSE_291A
 python rag_pipeline.py
 ```
 
@@ -120,6 +140,10 @@ project/
 ### If you get import errors:
 1. Make sure the environment is activated: `conda activate cse291a`
 2. Verify installation: `conda list`
+
+### CUDA/GPU Compatibility Issues (RTX 5070 and newer GPUs):
+If you encounter CUDA errors like "no kernel image is available for execution on the device", 
+see [INSTALL_CUDA_PYTORCH.md](INSTALL_CUDA_PYTORCH.md) for detailed instructions on updating PyTorch.
 
 ### To remove and recreate the environment:
 ```bash
