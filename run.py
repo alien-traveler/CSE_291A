@@ -118,18 +118,19 @@ Answer:
 # ====================== 阶段 4：交互界面 ======================
 if __name__ == "__main__":
     print("\n🚀 Academic RAG Assistant (Local vLLM version) ready!\n")
-    while True:
-        query = input("🔍 Enter your question (or 'exit' to quit): ").strip()
-        if query.lower() in ["exit", "quit"]:
-            break
+    
+    # ✅ 直接在代码中设置查询
+    query = "What are the main contributions of vision-language models in 2025?"
+    
+    print(f"🔍 Query: {query}\n")
+    
+    answer, refs = rag_generate(query, top_k=5)
 
-        answer, refs = rag_generate(query, top_k=5)
-
-        print("\n💡 Answer:\n", answer)
-        print("\n📚 Top References:")
-        for r in refs:
-            meta = r["metadata"]
-            print(f" - {meta.get('filename')} (chunk {meta.get('chunk_id')})")
-        print("\n" + "-" * 60 + "\n")
+    print("\n💡 Answer:\n", answer)
+    print("\n📚 Top References:")
+    for r in refs:
+        meta = r["metadata"]
+        print(f" - {meta.get('filename')} (chunk {meta.get('chunk_id')})")
+    print("\n" + "-" * 60 + "\n")
 
 
