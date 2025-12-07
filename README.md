@@ -59,6 +59,9 @@ python scripts/step3_embed_bge.py
 ```bash
 python build_embedding.py
 ```
+This now builds two separate indexes (papers vs GitHub READMEs) and prepends metadata (title/authors for papers, title for READMEs) before embedding:
+- `rag_paper_index.faiss` / `rag_paper_embeddings.npy`
+- `rag_readme_index.faiss` / `rag_readme_embeddings.npy`
 
 ### Step 5: Create Test Requests
 ```bash
