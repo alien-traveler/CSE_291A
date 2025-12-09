@@ -58,9 +58,9 @@ for idx, chunk in enumerate(data):
 paper_local_to_global = {i: global_idx for i, global_idx in enumerate(paper_indices)}
 readme_local_to_global = {i: global_idx for i, global_idx in enumerate(readme_indices)}
 
-with open("arxiv_paper.json", "r", encoding="utf-8") as f:
+with open("test/arxiv_paper.json", "r", encoding="utf-8") as f:
     arxiv_questions = json.load(f)
-with open("github_readme.json", "r", encoding="utf-8") as f:
+with open("test/github_readme.json", "r", encoding="utf-8") as f:
     github_questions = json.load(f)
 
 all_questions = arxiv_questions + github_questions
