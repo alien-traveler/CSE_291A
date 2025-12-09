@@ -13,3 +13,8 @@ evaluation_results.json
 github_readme.json
 rag_data.jsonl
 rag_embeddings.npy
+evaluation_comparison.json
+q0_retrieval_results.json
+evaluation_partitioned.json
+rag_paper_index.faiss
+rag_readme_index.faiss

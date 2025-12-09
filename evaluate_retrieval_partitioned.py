@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-RAG Retrieval Evaluation Script - Baseline vs Advanced (Rerank)
-=============================================================
+RAG Retrieval Evaluation - Partitioned Indices (Paper vs README)
+==============================================================
 """
 import json
 import numpy as np
@@ -15,110 +15,176 @@ from typing import Dict, List, Set
 # ==================== 1. 加载模型和数据 ====================
 print("🔹 Loading models and data...")
 
-# 1.1 Bi-Encoder (用于检索)
+# 1.1 Bi-Encoder
 bi_encoder = SentenceTransformer("BAAI/bge-m3", cache_folder='./model')
-index = faiss.read_index("rag_index.faiss")
 
-# 1.2 Cross-Encoder (用于重排序)
+# 1.2 加载两个独立索引 ✅
+print("🔹 Loading partitioned indices...")
+try:
+    index_paper = faiss.read_index("rag_paper_index.faiss")
+    index_readme = faiss.read_index("rag_readme_index.faiss")
+    print(f"✅ Loaded Paper Index: {index_paper.ntotal} vectors")
+    print(f"✅ Loaded README Index: {index_readme.ntotal} vectors")
+except Exception as e:
+    print(f"❌ Error loading indices: {e}")
+    print("Did you run the new build_embedding.py?")
+    exit(1)
+
+# 1.3 Cross-Encoder
 cross_encoder = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2', default_activation_function=None)
 
-# 1.3 加载数据
+# 1.4 加载数据 (假设 rag_all.jsonl 已经是包含元数据增强的新版本)
 with open("rag_all.jsonl", "r", encoding="utf-8") as f:
     data = [json.loads(line) for line in f]
 
-with open("test/arxiv_paper.json", "r", encoding="utf-8") as f:
-    arxiv_questions = json.load(f)
+# 建立映射: Global Index -> Source Type
+# 我们需要知道全局 data 列表中的每个 chunk 属于哪个索引，以便正确映射 ID
+# 假设构建索引时是按顺序添加的，或者我们需要重新扫描一遍来建立映射
+# ⚠️ 关键假设：rag_all.jsonl 的顺序没有变，且我们知道哪些是 paper 哪些是 readme
+# 更稳妥的方法是根据 metadata 实时判断
+paper_indices = []
+readme_indices = []
+for idx, chunk in enumerate(data):
+    meta = chunk["metadata"]
+    if "readme" in meta.get("filename", "").lower() or "github" in meta.get("source", "").lower():
+        readme_indices.append(idx)
+    else:
+        paper_indices.append(idx)
 
-with open("test/github_readme.json", "r", encoding="utf-8") as f:
+# 建立局部索引到全局索引的映射
+# 假设 build_embedding 时是先加所有 paper 再加所有 readme，或者分开加的
+# 这里我们需要根据你的 build 逻辑来对应。
+# 最通用的方式：假设 index_paper 里的第 i 个向量对应 paper_indices[i]
+paper_local_to_global = {i: global_idx for i, global_idx in enumerate(paper_indices)}
+readme_local_to_global = {i: global_idx for i, global_idx in enumerate(readme_indices)}
+
+with open("arxiv_paper.json", "r", encoding="utf-8") as f:
+    arxiv_questions = json.load(f)
+with open("github_readme.json", "r", encoding="utf-8") as f:
     github_questions = json.load(f)
 
 all_questions = arxiv_questions + github_questions
 print(f"✅ Loaded {len(data)} chunks and {len(all_questions)} questions.")
 
-# ==================== 2. 构建 BM25 索引 (仅 README) ====================
+# ==================== 2. 构建 BM25 (仅针对 README) ====================
 print("🔹 Building BM25 index for READMEs...")
-
-readme_indices = []
-readme_corpus = []
-
-for idx, chunk in enumerate(data):
-    meta = chunk["metadata"]
-    if "readme" in meta.get("filename", "").lower() or "github" in meta.get("source", "").lower():
-        readme_indices.append(idx)
-        readme_corpus.append(chunk["text"])
-
+readme_corpus = [data[i]["text"] for i in readme_indices]
 tokenized_corpus = [doc.lower().split() for doc in readme_corpus]
 bm25 = BM25Okapi(tokenized_corpus)
-bm25_idx_to_global = {i: global_idx for i, global_idx in enumerate(readme_indices)}
-
+# BM25 的索引 i 对应 readme_indices[i]
 print(f"✅ BM25 index built for {len(readme_corpus)} README chunks.")
 
-# ==================== 3. 定义延迟统计 ====================
-latency_stats = {
-    "baseline": [],
-    "advanced": []
-}
+# ==================== 3. Router 逻辑 ====================
+def is_code_query(query: str) -> bool:
+    """简单路由：判断是否查代码/Repo"""
+    keywords = [
+        "code", "python", "github", "repo", "implementation", 
+        "install", "usage", "api", "function", "class", "library",
+        "pip", "clone", "setup"
+    ]
+    return any(k in query.lower() for k in keywords)
 
-# ==================== 4. 检索函数定义 ====================
+latency_stats = {"baseline": [], "advanced": []}
 
-def retrieve_baseline(query: str, top_k: int = 10) -> List[Dict]:
+# ==================== 4. 检索函数 (修复版: Soft Routing) ====================
+
+def retrieve_partitioned_baseline(query: str, top_k: int = 10) -> List[Dict]:
     """
-    Baseline: 仅 Dense Retrieval (FAISS)
+    Baseline: 同时搜索两个索引，合并结果
     """
     t_start = time.time()
-    
-    # Embedding
     query_vec = bi_encoder.encode([query], normalize_embeddings=True)
     
-    # Search
-    D, I = index.search(query_vec.astype(np.float32), top_k)
+    # 1. 搜索 Paper Index
+    D_p, I_p = index_paper.search(query_vec.astype(np.float32), top_k)
     
-    results = []
-    for rank, (idx, score) in enumerate(zip(I[0], D[0])):
-        if idx < 0 or idx >= len(data): continue
-        chunk = data[idx]
-        results.append({
-            "paper_id": chunk["metadata"].get("filename", "unknown"),
-            "chunk_id": f"chunk_{idx}",
+    # 2. 搜索 README Index
+    D_r, I_r = index_readme.search(query_vec.astype(np.float32), top_k)
+    
+    all_results = []
+    
+    # 处理 Paper 结果
+    for rank, (local_idx, score) in enumerate(zip(I_p[0], D_p[0])):
+        if local_idx < 0: continue
+        global_idx = paper_local_to_global[local_idx]
+        all_results.append({
+            "chunk_idx": global_idx,
             "score": float(score),
+            "source": "paper"
+        })
+
+    # 处理 README 结果
+    for rank, (local_idx, score) in enumerate(zip(I_r[0], D_r[0])):
+        if local_idx < 0: continue
+        global_idx = readme_local_to_global[local_idx]
+        all_results.append({
+            "chunk_idx": global_idx,
+            "score": float(score),
+            "source": "readme"
+        })
+    
+    # 3. 合并并排序 (取 Top-K)
+    all_results.sort(key=lambda x: x["score"], reverse=True)
+    top_results = all_results[:top_k]
+    
+    # 4. 格式化
+    formatted_results = []
+    for rank, item in enumerate(top_results):
+        chunk = data[item["chunk_idx"]]
+        formatted_results.append({
+            "paper_id": chunk["metadata"].get("filename", "unknown"),
+            "chunk_id": f"chunk_{item['chunk_idx']}",
+            "score": item["score"],
             "text": chunk["text"],
             "rank": rank + 1
         })
         
     t_end = time.time()
     latency_stats["baseline"].append((t_end - t_start) * 1000)
-    return results
+    return formatted_results
 
 
-def retrieve_advanced(query: str, top_k: int = 10) -> List[Dict]:
+def retrieve_partitioned_advanced(query: str, top_k: int = 10) -> List[Dict]:
     """
-    Advanced: Hybrid (Dense + BM25) + Rerank (Cross-Encoder)
+    Advanced: 
+    1. 搜索两个索引 (Top-50 each)
+    2. 合并候选集
+    3. Rerank (Cross-Encoder 会自动挑选最好的)
     """
     t_start = time.time()
-    
-    # --- Stage 1: Hybrid Retrieval ---
     candidate_ids: Set[int] = set()
+    target_is_code = is_code_query(query)
     
-    # 1.1 Dense (Top-50)
-    dense_k = 50
     query_vec = bi_encoder.encode([query], normalize_embeddings=True)
-    D, I = index.search(query_vec.astype(np.float32), dense_k)
-    for idx in I[0]:
-        if idx >= 0 and idx < len(data): candidate_ids.add(int(idx))
+    dense_k = 50 
+    
+    # 1. 搜 Paper (总是搜!)
+    D_p, I_p = index_paper.search(query_vec.astype(np.float32), dense_k)
+    for local_idx in I_p[0]:
+        if local_idx >= 0: candidate_ids.add(paper_local_to_global[local_idx])
+
+    # 2. 搜 README (总是搜!)
+    D_r, I_r = index_readme.search(query_vec.astype(np.float32), dense_k)
+    for local_idx in I_r[0]:
+        if local_idx >= 0: candidate_ids.add(readme_local_to_global[local_idx])
             
-    # 1.2 BM25 (Top-50)
-    bm25_k = 50
-    tokenized_query = query.lower().split()
-    bm25_scores = bm25.get_scores(tokenized_query)
-    top_bm25 = np.argsort(bm25_scores)[::-1][:bm25_k]
-    for bm25_idx in top_bm25:
-        if bm25_scores[bm25_idx] > 0:
-            candidate_ids.add(bm25_idx_to_global[bm25_idx])
-            
+    # 3. BM25 (仅针对 README，辅助召回)
+    # 只有当是 Code Query 时才加 BM25，或者总是加
+    if target_is_code: 
+        bm25_k = 50
+        tokenized_query = query.lower().split()
+        bm25_scores = bm25.get_scores(tokenized_query)
+        top_bm25 = np.argsort(bm25_scores)[::-1][:bm25_k]
+        for bm25_idx in top_bm25:
+            if bm25_scores[bm25_idx] > 0:
+                global_idx = readme_indices[bm25_idx]
+                candidate_ids.add(global_idx)
+
     candidates = list(candidate_ids)
     if not candidates: return []
 
     # --- Stage 2: Reranking ---
+    # Cross-Encoder 是最聪明的 Router，它会自己看哪个结果好
     cross_inp = [[query, data[idx]["text"]] for idx in candidates]
     cross_scores = cross_encoder.predict(cross_inp)
     
@@ -142,8 +208,7 @@ def retrieve_advanced(query: str, top_k: int = 10) -> List[Dict]:
     latency_stats["advanced"].append((t_end - t_start) * 1000)
     return results
 
-# ==================== 5. 准备评估数据 ====================
-# (复用之前的 prepare_evaluation_data 函数)
+# ==================== 5. 准备评估数据 (保持不变) ====================
 def prepare_evaluation_data(questions: List[Dict]) -> tuple:
     STOPWORDS = {
         'a', 'an', 'the', 'is', 'are', 'was', 'were', 'be', 'been', 'being',
@@ -201,20 +266,20 @@ if len(queries) == 0:
 
 # 预热
 print("🔥 Warming up models...")
-retrieve_baseline("warm up query", top_k=10)
-retrieve_advanced("warm up query", top_k=10)
+retrieve_partitioned_baseline("warm up query", top_k=10)
+retrieve_partitioned_advanced("warm up query", top_k=10)
 latency_stats["baseline"] = []
 latency_stats["advanced"] = []
 
-print("🔍 Running Baseline Retrieval...")
+print("🔍 Running Partitioned Baseline (Router + Dense)...")
 runs_baseline = {}
 for qid, q_data in queries.items():
-    runs_baseline[qid] = retrieve_baseline(q_data["query"], top_k=10)
+    runs_baseline[qid] = retrieve_partitioned_baseline(q_data["query"], top_k=10)
 
-print("🔍 Running Advanced Retrieval (Hybrid + Rerank)...")
+print("🔍 Running Partitioned Advanced (Router + Hybrid + Rerank)...")
 runs_advanced = {}
 for qid, q_data in queries.items():
-    runs_advanced[qid] = retrieve_advanced(q_data["query"], top_k=10)
+    runs_advanced[qid] = retrieve_partitioned_advanced(q_data["query"], top_k=10)
 
 print(f"✅ Retrieved results for {len(queries)} queries\n")
 
@@ -227,10 +292,10 @@ def print_latency(name, values):
     if not values: return
     avg = sum(values) / len(values)
     p95 = np.percentile(values, 95)
-    print(f"{name:20s} | Avg: {avg:6.2f}ms | P95: {p95:6.2f}ms")
+    print(f"{name:25s} | Avg: {avg:6.2f}ms | P95: {p95:6.2f}ms")
 
-print_latency("Baseline (Dense)", latency_stats["baseline"])
-print_latency("Advanced (Rerank)", latency_stats["advanced"])
+print_latency("Partitioned Baseline", latency_stats["baseline"])
+print_latency("Partitioned Advanced", latency_stats["advanced"])
 print("=" * 80 + "\n")
 
 # ==================== 8. 评估指标对比 ====================
@@ -241,7 +306,7 @@ results_baseline = evaluate(
     gold_paper=gold_paper,
     gold_passage=gold_passage,
     k_list=[5, 10],
-    bootstrap=False # 快速评估
+    bootstrap=False
 )
 
 print("📊 Evaluating Advanced...")
@@ -255,7 +320,7 @@ results_advanced = evaluate(
 )
 
 print("\n" + "=" * 80)
-print("📈 PERFORMANCE COMPARISON (Baseline vs Advanced)")
+print("📈 PERFORMANCE COMPARISON (Partitioned Indices)")
 print("=" * 80)
 
 metrics_to_compare = [
@@ -286,6 +351,6 @@ output = {
     "baseline": results_baseline,
     "advanced": results_advanced
 }
-with open("evaluation_comparison.json", "w", encoding="utf-8") as f:
+with open("evaluation_partitioned.json", "w", encoding="utf-8") as f:
     json.dump(output, f, indent=2, ensure_ascii=False)
-print(f"💾 Detailed results saved to: evaluation_comparison.json")
+print(f"💾 Detailed results saved to: evaluation_partitioned.json")
