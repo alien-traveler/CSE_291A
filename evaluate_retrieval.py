@@ -26,9 +26,10 @@ cross_encoder = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2', default_act
 with open("rag_all.jsonl", "r", encoding="utf-8") as f:
     data = [json.loads(line) for line in f]
 
-with open("arxiv_paper.json", "r", encoding="utf-8") as f:
+with open("test/arxiv_paper.json", "r", encoding="utf-8") as f:
     arxiv_questions = json.load(f)
-with open("github_readme.json", "r", encoding="utf-8") as f:
+
+with open("test/github_readme.json", "r", encoding="utf-8") as f:
     github_questions = json.load(f)
 
 all_questions = arxiv_questions + github_questions

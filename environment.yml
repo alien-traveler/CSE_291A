@@ -1,0 +1,13 @@
+name: cse291a
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pandas
+  - numpy
+  - datasets
+  - sentence-transformers
+  - faiss-cpu
+  - pytorch
+  - jupyter  # optional, for notebooks

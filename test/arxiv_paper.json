@@ -1,0 +1,81 @@
+[
+  {
+    "question": "What are the three phases of the PLAGUE framework for designing multi-turn attacks?",
+    "reference_content": [
+      "PLAGUE dissects the lifetime of a multi-turn attack into three carefully designed phases (Primer, Planner and Finisher) that enable a systematic and information-rich exploration of the multi-turn attack family.",
+      "Figure 1 shows the design of our three-phase framework for multi-turn attacks.",
+      "PLAGUE adopts the best of both worlds, demonstrating how a combination of smart initialization, context-building and feedback incorporation can deliver extensive downstream benefits while avoiding common pitfalls such as semantic drifts in the generated context."
+    ],
+    "file": "data/2510.17947v1.pdf"
+  },
+  {
+    "question": "What is the minimum number of queries required to achieve a goal with error at most ε, according to the information-theoretic lower bound on query complexity?",
+    "reference_content": [
+      "Nmin(ε) := min { N | PN ≤ ε , (4) we call Nmin(ε) the minimum number of queries required to achieve the goal with error at most ε.",
+      "Then, for any error tolerance 0 < ε < 1, every adaptive strategy must issue at least Nmin(ε) ≥ log2(1/ε) Imax . (7)"
+    ],
+    "file": "data/2510.17000v1.pdf"
+  },
+  {
+    "question": "What is the main advantage of using SemiLoRA over full-model fine-tuning in the context of English to Irish translation?",
+    "reference_content": [
+      "We find that SemiLoRA outperforms full-model fine-tuning on some domains and enables LoRA-based methods to achieve performance comparable to full-model fine-tuning.",
+      "Although full-model fine-tuning outperforms SemiLoRA on some domains, SemiLoRA demonstrates that it can also benefit from our semi-supervised, inference-efficient strategy."
+    ],
+    "file": "data/2510.18725v1.pdf"
+  },
+  {
+    "question": "What is the novel approach introduced in the Reinforcement Fine-Tuning (RFT) stage of KAT-Coder for stable and sample-efficient policy optimization?",
+    "reference_content": [
+      "The RFT stage introduces a novel multi-ground-truth reward formulation for stable and sample-efficient policy optimization.",
+      "This curriculum reflects a closed-loop design philosophy: cognitive enrichment precedes structured supervision, which in turn grounds reinforcement learning and real-world adaptation."
+    ],
+    "file": "data/2510.18779v1.pdf"
+  },
+  {
+    "question": "What multiple robustness metrics are introduced in Res-Bench for evaluating the performance stability of MLLMs across varying input resolutions?",
+    "reference_content": [
+      "This framework introduces multiple robustness metrics: Spearman’s correlation for assessing resolution-performance trends, and Absolute/Relative Continuous Error (ACE/RCE) for measuring performance volatility.",
+      "We employ a suite of four metrics to comprehensively assess model behavior: overall performance is measured by accuracy, the performance trend by Spearman’s correlation coefficient, and stability by Absolute/Relative Continuous Error (ACE/RCE), as detailed in Section 3.3."
+    ],
+    "file": "data/2510.16926v1.pdf"
+  },
+  {
+    "question": "What specific performance improvement percentage does the Executable Knowledge Graph (XKG) achieve on the PaperBench benchmark with the o3-mini model?",
+    "reference_content": [
+      "When integrated into three agent frameworks with two different LLMs, xKG shows substantial performance gains (10.9% with o3-mini) on PaperBench, demonstrating its effectiveness as a general and extensible solution for automated AI research replication."
+    ],
+    "file": "data/2510.17795v1.pdf"
+  },
+  {
+    "question": "What specific modules does the MIRAGE framework use for multimodal misinformation detection?",
+    "reference_content": [
+      "MIRAGE, an inference-time, model-pluggable agentic framework that decomposes multimodal verification into four sequential modules: visual veracity assessment detects AI-generated images, cross-modal consistency analysis identifies out-of-context repurposing, retrieval-augmented factual checking grounds claims in web evidence through iterative question generation, and a calibrated judgment module integrates all signals.",
+      "The visual verification module examines images for AI-generation artifacts and manipulation signatures, addressing the documented rise of synthetic media. The relevancy assessment module evaluates cross-modal consistency, detecting out-of-context repurposing where real images accompany misleading text. The claim verification module generates investigative questions about factual claims through three sequential reasoning chains, queries DuckDuckGo web search to retrieve web evidence, and synthesizes web information with citation-linked answers. The final judgment module integrates signals from all components using structured decision rules."
+    ],
+    "file": "data/2510.17590v1.pdf"
+  },
+  {
+    "question": "What is the RoI-aligned feature replay technique proposed in Grasp Any Region (GAR) and how does it enhance the model's capabilities?",
+    "reference_content": [
+      "To achieve these capabilities, effectively encoding global contexts becomes equally crucial as local detailed features. To this end, we propose an RoI-aligned feature replay technique. Specifically, GAR first encodes the full, uncropped image (together with the mask prompt) with AnyRes [27]. Subsequently, RoI-Align [16] is employed to gather relevant features directly from the global feature map. Those gathered features are inherently context-aware, providing sufficient local details while maintaining global information simultaneously."
+    ],
+    "file": "data/2510.18876v1.pdf"
+  },
+  {
+    "question": "What specific intervention does the study propose to help Vision-Language Models (VLMs) utilize visual evidence more effectively?",
+    "reference_content": [
+      "Building on this, we introduce an inference-time intervention that highlights deep-layer evidence regions through selective attention-based masking.",
+      "This simple yet effective strategy requires no additional training, applies across architectures, and consistently improves answer quality.",
+      "These results suggest that VLMs already possess latent capabilities for grounding answers in the right evidence, but require targeted elicitation to realize this potential."
+    ],
+    "file": "data/2510.17771v1.pdf"
+  },
+  {
+    "question": "What are the three core modules of the Med-VRAgent framework?",
+    "reference_content": [
+      "Med-VRAgent consists of three core modules—Teacher, Student, and Assessor—and two key components: a Visual Extraction Module, and a Retrieval-Augmented Reflection (RAR)."
+    ],
+    "file": "data/2510.18424v1.pdf"
+  }
+]

@@ -1,3 +1,11 @@
+.env
+.DS_Store
+.idea/
+
+# Large data files
+data/*.pdf
+
+# Model cache and generated files
 model
 __pycache__
 arxiv_paper.json
